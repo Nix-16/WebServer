@@ -1,5 +1,5 @@
 ## WebServer
-我的 WebServer 项目是一个基于 C++ 的高性能 Web 服务器，采用主从分离设计，结合 epoll 和线程池技术，极大地提升了服务器的吞吐能力。，一个主reactor和四个子reactor,主 Reactor 主要负责监听客户端连接请求 (accept)，并将新连接分发给子 Reactor 处理。经过webbenchh压力测试可以实现6000+的 QPS。
+我的 WebServer 项目是一个基于 C++ 的高性能 Web 服务器，采用主从分离设计，结合 epoll 和线程池技术，极大地提升了服务器的吞吐能力。，一个主reactor和四个子reactor,主 Reactor 主要负责监听客户端连接请求 (accept)，并将新连接分发给子 Reactor 处理。经过webbench压力测试可以实现6000+的 QPS。
 
 ## 功能
 * 利用 IO 复用技术中的 epoll 与线程池，构建主从 Reactor 架构，高效处理大规模并发请求，显著提升服务器吞吐量。
@@ -36,9 +36,32 @@ make
 ```
 
 ## 压力测试
+![alt text](image.png)
+
+```
+webbench -c 1000 -t 10 http://127.0.0.1:8080/
+webbench -c 3000 -t 10 http://127.0.0.1:8080/
+webbench -c 5000 -t 10 http://127.0.0.1:8080/
+webbench -c 8000 -t 10 http://127.0.0.1:8080/
+
+```
+* ubantu 22.04 内存：8g CPU i7-1065G7 虚拟机处理器：8
+* QPS: 5700+ 边缘模式下相较于markparticle/WebServer提升1700+
 
 ## TODO
+* 日志系统
+* 定时器关闭超时连接
+* 单元测试
 
 ## 致谢
-Linux高性能服务器编程，游双著.
-@markparticle MARK WebServer[!https://github.com/markparticle/WebServer]
+
+本项目的开发得益于以下资源与参考资料的支持，在此深表感谢：
+
+1. **《Linux高性能服务器编程》**  
+   作者：游双  
+   本书提供了关于高并发网络服务器编程的理论基础与实践指导。
+
+2. **MARK WebServer**  
+   作者：@markparticle  
+   项目地址：[https://github.com/markparticle/WebServer](https://github.com/markparticle/WebServer)  
+   此项目为本项目的设计与实现提供了重要的参考与启发。
