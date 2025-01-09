@@ -1,0 +1,3 @@
+/home/shawn/projects/WebServer/build/CMakeFiles/webserver.dir
+/home/shawn/projects/WebServer/build/CMakeFiles/edit_cache.dir
+/home/shawn/projects/WebServer/build/CMakeFiles/rebuild_cache.dir

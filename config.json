@@ -1,0 +1,19 @@
+{
+    "server": {
+        "host": "127.0.0.1",
+        "port": 8080,
+        "subReactorNum": 4,
+        "srcDir": "../resources"
+    },
+    "database": {
+        "host": "localhost",
+        "port": 3306,
+        "user": "root",
+        "password": "6",
+        "dbname": "webserver"
+    },
+    "pool": {
+        "sqlPoolNum": 4,
+        "threadPoolNum": 8
+    }
+}
