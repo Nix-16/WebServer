@@ -31,8 +31,9 @@ CREATE TABLE user(
 INSERT INTO user(username, password) VALUES('name', 'password');
 ```
 ```
+cd build
 make
-./bin/server
+./webserver
 ```
 
 ## 压力测试
