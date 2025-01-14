@@ -13,7 +13,7 @@
         "dbname": "webserver"
     },
     "pool": {
-        "sqlPoolNum": 4,
-        "threadPoolNum": 8
+        "sqlPoolNum": 12,
+        "threadPoolNum": 6
     }
 }

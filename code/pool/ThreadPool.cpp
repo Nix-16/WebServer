@@ -2,14 +2,16 @@
 #include <iostream>
 
 ThreadPool::ThreadPool(size_t threadCount)
-    : stop_(false)
+    : stop_(false),
+      logger(&AsyncLogger::get_instance())
 {
     // 创建 threadCount 条线程
     for (size_t i = 0; i < threadCount; i++)
     {
         workers_.emplace_back(std::thread(&ThreadPool::workerThread, this));
     }
-    std::cout<<"init threadpool num : "<<threadCount<<std::endl;
+    std::cout << "init threadpool num : " << threadCount << std::endl;
+    logger->log(INFO, "init threadpool num : " + std::to_string(threadCount));
 }
 
 ThreadPool::~ThreadPool()
@@ -73,6 +75,7 @@ void ThreadPool::workerThread()
         {
             // 如果任务抛出异常，这里可以选择处理或忽略
             std::cerr << "[ThreadPool] Task threw an exception!\n";
+            logger->log(ERROR, "[ThreadPool] Task threw an exception!");
         }
     }
 }

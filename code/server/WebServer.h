@@ -3,6 +3,7 @@
 
 #include "MasterReactor.h"
 #include "config.h"
+#include "log.hpp"
 
 /**
  * @brief Server 类，用来包装 MasterReactor（以及子 Reactor 的管理）
@@ -34,6 +35,10 @@ private:
     MasterReactor master_; ///< 内部持有一个 MasterReactor
 
     bool running_;
+
+    AsyncLogger* logger; 
+
+    Config *config;
 };
 
 #endif // SERVER_H

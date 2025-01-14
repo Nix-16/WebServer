@@ -8,6 +8,7 @@
 #include <condition_variable>
 #include <functional>
 #include <atomic>
+#include "log.hpp"
 
 /**
  * @brief 线程池，用于高并发服务器处理网络 I/O 或其他耗时任务
@@ -45,6 +46,8 @@ private:
     std::mutex mtx_;               // 互斥锁，保护 tasks_ 队列
     std::condition_variable cond_; // 条件变量，用于唤醒工作线程
     std::atomic<bool> stop_;       // 用于通知线程池停止
+
+    AsyncLogger *logger;
 };
 
 #endif // THREADPOOL_H

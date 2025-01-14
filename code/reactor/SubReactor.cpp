@@ -6,7 +6,8 @@
 SubReactor::SubReactor(std::shared_ptr<ThreadPool> threadPool)
     : epoller_(std::make_unique<Epoll>()),
       threadPool_(threadPool),
-      isRunning_(false)
+      isRunning_(false),
+      logger(&AsyncLogger::get_instance())
 {
 }
 
@@ -35,6 +36,7 @@ void SubReactor::run()
             if (errno == EINTR)
                 continue; // 被信号打断则继续
             std::cerr << "SubReactor epoll_wait error\n";
+            logger->log(ERROR, "SubReactor epoll_wait error");
             break;
         }
 

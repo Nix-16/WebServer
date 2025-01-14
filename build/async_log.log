@@ -1,0 +1,12 @@
+[2025-01-14 15:56:52] [INFO] webserver runing port: 8080
+[2025-01-14 15:56:52] [INFO] init threadpool num : 8
+[2025-01-14 15:56:53] [INFO] [SqlConnPool] Init done. PoolSize =4/4
+[2025-01-14 16:39:59] [INFO] webserver runing port: 8080
+[2025-01-14 16:39:59] [INFO] init threadpool num : 8
+[2025-01-14 16:39:59] [INFO] [SqlConnPool] Init done. PoolSize =4/4
+[2025-01-14 16:43:50] [INFO] webserver runing port: 8080
+[2025-01-14 16:43:50] [INFO] init threadpool num : 8
+[2025-01-14 16:43:50] [INFO] [SqlConnPool] Init done. PoolSize =4/4
+[2025-01-14 16:49:35] [INFO] webserver runing port: 8080
+[2025-01-14 16:49:35] [INFO] init threadpool num : 6
+[2025-01-14 16:49:35] [INFO] [SqlConnPool] Init done. PoolSize =12/12

@@ -18,7 +18,8 @@ SqlConnPool *SqlConnPool::Instance()
 SqlConnPool::SqlConnPool()
     : MAX_CONN_(0),
       useCount_(0),
-      freeCount_(0)
+      freeCount_(0),
+      logger(&AsyncLogger::get_instance())
 {
     // 初始时没有连接，信号量值设为0
     sem_init(&semId_, 0, 0);
@@ -43,6 +44,7 @@ void SqlConnPool::Init(const char *host, int port,
     if (!connQue_.empty())
     {
         std::cerr << "[SqlConnPool] Already initialized.\n";
+        logger->log(ERROR, "[SqlConnPool] Already initialized.");
         return;
     }
 
@@ -53,6 +55,7 @@ void SqlConnPool::Init(const char *host, int port,
         if (!conn)
         {
             std::cerr << "[SqlConnPool] Create MySQL connection failed!\n";
+            logger->log(ERROR, "[SqlConnPool] Create MySQL connection failed!");
             continue;
         }
         connQue_.push(conn);
@@ -66,6 +69,7 @@ void SqlConnPool::Init(const char *host, int port,
 
     std::cout << "[SqlConnPool] Init done. PoolSize = "
               << freeCount_ << "/" << MAX_CONN_ << "\n";
+    logger->log(INFO, "[SqlConnPool] Init done. PoolSize =" + std::to_string(freeCount_) + "/" + std::to_string(MAX_CONN_));
 }
 
 /**
@@ -79,6 +83,7 @@ MYSQL *SqlConnPool::GetConn(int timeout_ms)
     if (connQue_.empty())
     {
         std::cerr << "[SqlConnPool] No available connection.\n";
+        logger->log(ERROR, "[SqlConnPool] No available connection.");
         return nullptr;
     }
 
@@ -103,6 +108,7 @@ MYSQL *SqlConnPool::GetConn(int timeout_ms)
             {
                 std::cerr << "[SqlConnPool] GetConn timeout("
                           << timeout_ms << " ms).\n";
+                logger->log(ERROR, "[SqlConnPool] GetConn timeout(" + std::to_string(timeout_ms) + "ms).");
                 return nullptr;
             }
         }
@@ -115,6 +121,7 @@ MYSQL *SqlConnPool::GetConn(int timeout_ms)
         {
             // 理论上不该出现，但多一层保护
             std::cerr << "[SqlConnPool] GetConn - queue empty.\n";
+            logger->log(ERROR, "[SqlConnPool] GetConn - queue empty.");
             // sem_post(&semId_); // 视情况而定
             return nullptr;
         }
@@ -169,6 +176,7 @@ void SqlConnPool::ClosePool()
     useCount_ = 0;
     sem_destroy(&semId_);
     std::cout << "[SqlConnPool] Pool closed.\n";
+    logger->log(ERROR, "[SqlConnPool] Pool closed.");
 }
 
 /* ================== 私有工具函数 =================== */
@@ -184,6 +192,7 @@ MYSQL *SqlConnPool::createConn(const char *host, int port,
     if (!conn)
     {
         std::cerr << "[SqlConnPool] mysql_init() failed.\n";
+        logger->log(ERROR, "[SqlConnPool] mysql_init() failed.");
         return nullptr;
     }
     // 若需要设置字符集等，可在此添加
@@ -195,6 +204,7 @@ MYSQL *SqlConnPool::createConn(const char *host, int port,
     {
         std::cerr << "[SqlConnPool] mysql_real_connect() error: "
                   << mysql_error(conn) << "\n";
+        logger->log(ERROR, "[SqlConnPool] mysql_real_connect() error: " + std::to_string(mysql_errno(conn)));
         return nullptr;
     }
     return conn;

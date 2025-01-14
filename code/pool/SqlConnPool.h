@@ -9,6 +9,7 @@
 #include <atomic>
 #include <thread>
 #include <iostream>
+#include "log.hpp"
 
 /**
  * @brief 数据库连接池，用于管理 MySQL 连接的创建、获取、归还与销毁。
@@ -88,6 +89,8 @@ private:
     std::queue<MYSQL *> connQue_; // 存放空闲连接的队列
     mutable std::mutex mtx_;      // 保护 connQue_ 的线程安全
     sem_t semId_;                 // 信号量，控制可用连接的数量
+
+    AsyncLogger *logger;
 };
 
 #endif // SQLCONNPOOL_H

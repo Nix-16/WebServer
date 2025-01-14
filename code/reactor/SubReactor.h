@@ -15,6 +15,7 @@
 #include "Epoll.h"
 #include "HttpConn.h"
 #include "ThreadPool.h"
+#include "log.hpp"
 
 class SubReactor
 {
@@ -52,6 +53,8 @@ private:
 
     // 你可以自行选择在构造时创建一个线程，也可以外部控制
     bool isRunning_;
+
+    AsyncLogger *logger;
 };
 
 #endif // SUBREACTOR_H

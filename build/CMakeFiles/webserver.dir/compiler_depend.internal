@@ -677,6 +677,12 @@ CMakeFiles/webserver.dir/code/http/HttpConn.cpp.o
  /usr/include/c++/11/bits/std_thread.h
  /usr/include/c++/11/bits/this_thread_sleep.h
  /usr/include/c++/11/iostream
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.h
  /home/shawn/projects/WebServer/code/http/HttpResponse.h
  /usr/include/fcntl.h
@@ -709,10 +715,6 @@ CMakeFiles/webserver.dir/code/http/HttpConn.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h
  /usr/include/x86_64-linux-gnu/bits/mman-shared.h
  /home/shawn/projects/WebServer/code/config/config.h
- /usr/include/c++/11/fstream
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
  /usr/include/nlohmann/json.hpp
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/numeric
@@ -1105,6 +1107,12 @@ CMakeFiles/webserver.dir/code/http/HttpRequest.cpp.o
  /usr/include/c++/11/bits/std_thread.h
  /usr/include/c++/11/bits/this_thread_sleep.h
  /usr/include/c++/11/iostream
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.h
 
 CMakeFiles/webserver.dir/code/http/HttpResponse.cpp.o
@@ -1697,6 +1705,12 @@ CMakeFiles/webserver.dir/code/main.cpp.o
  /usr/include/c++/11/bits/stl_queue.h
  /usr/include/semaphore.h
  /usr/include/x86_64-linux-gnu/bits/semaphore.h
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.h
  /home/shawn/projects/WebServer/code/http/HttpResponse.h
  /usr/include/x86_64-linux-gnu/sys/stat.h
@@ -1715,10 +1729,6 @@ CMakeFiles/webserver.dir/code/main.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h
  /usr/include/x86_64-linux-gnu/bits/mman-shared.h
  /home/shawn/projects/WebServer/code/config/config.h
- /usr/include/c++/11/fstream
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
  /usr/include/nlohmann/json.hpp
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/numeric
@@ -1810,7 +1820,7 @@ CMakeFiles/webserver.dir/code/main.cpp.o
  /usr/include/nlohmann/detail/macro_unscope.hpp
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
  /home/shawn/projects/WebServer/code/pool/ThreadPool.h
- /usr/include/c++/11/condition_variable
+ /home/shawn/projects/WebServer/code/log/log.hpp
 
 CMakeFiles/webserver.dir/code/pool/SqlConnPool.cpp.o
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.cpp
@@ -2043,6 +2053,20 @@ CMakeFiles/webserver.dir/code/pool/SqlConnPool.cpp.o
  /usr/include/c++/11/bits/ostream.tcc
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/c++/11/bits/codecvt.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
+ /usr/include/c++/11/bits/shared_ptr.h
+ /usr/include/c++/11/bits/shared_ptr_base.h
+ /usr/include/c++/11/bits/allocated_ptr.h
+ /usr/include/c++/11/ext/aligned_buffer.h
+ /usr/include/c++/11/ext/concurrence.h
+ /usr/include/c++/11/sstream
+ /usr/include/c++/11/bits/sstream.tcc
 
 CMakeFiles/webserver.dir/code/pool/ThreadPool.cpp.o
  /home/shawn/projects/WebServer/code/pool/ThreadPool.cpp
@@ -2257,6 +2281,7 @@ CMakeFiles/webserver.dir/code/pool/ThreadPool.cpp.o
  /usr/include/c++/11/atomic
  /usr/include/c++/11/bits/atomic_base.h
  /usr/include/c++/11/bits/atomic_lockfree_defines.h
+ /home/shawn/projects/WebServer/code/log/log.hpp
  /usr/include/c++/11/iostream
  /usr/include/c++/11/ostream
  /usr/include/c++/11/ios
@@ -2278,6 +2303,13 @@ CMakeFiles/webserver.dir/code/pool/ThreadPool.cpp.o
  /usr/include/c++/11/bits/ostream.tcc
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
+ /usr/include/c++/11/fstream
+ /usr/include/c++/11/bits/codecvt.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/sstream
+ /usr/include/c++/11/bits/sstream.tcc
 
 CMakeFiles/webserver.dir/code/reactor/MasterReactor.cpp.o
  /home/shawn/projects/WebServer/code/reactor/MasterReactor.cpp
@@ -2623,6 +2655,12 @@ CMakeFiles/webserver.dir/code/reactor/MasterReactor.cpp.o
  /usr/include/c++/11/bits/stl_queue.h
  /usr/include/semaphore.h
  /usr/include/x86_64-linux-gnu/bits/semaphore.h
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.h
  /home/shawn/projects/WebServer/code/http/HttpResponse.h
  /usr/include/x86_64-linux-gnu/sys/stat.h
@@ -2641,10 +2679,6 @@ CMakeFiles/webserver.dir/code/reactor/MasterReactor.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h
  /usr/include/x86_64-linux-gnu/bits/mman-shared.h
  /home/shawn/projects/WebServer/code/config/config.h
- /usr/include/c++/11/fstream
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
  /usr/include/nlohmann/json.hpp
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/numeric
@@ -2736,7 +2770,6 @@ CMakeFiles/webserver.dir/code/reactor/MasterReactor.cpp.o
  /usr/include/nlohmann/detail/macro_unscope.hpp
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
  /home/shawn/projects/WebServer/code/pool/ThreadPool.h
- /usr/include/c++/11/condition_variable
 
 CMakeFiles/webserver.dir/code/reactor/SubReactor.cpp.o
  /home/shawn/projects/WebServer/code/reactor/SubReactor.cpp
@@ -3075,6 +3108,12 @@ CMakeFiles/webserver.dir/code/reactor/SubReactor.cpp.o
  /usr/include/c++/11/bits/std_thread.h
  /usr/include/c++/11/bits/this_thread_sleep.h
  /usr/include/c++/11/iostream
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.h
  /home/shawn/projects/WebServer/code/http/HttpResponse.h
  /usr/include/fcntl.h
@@ -3099,10 +3138,6 @@ CMakeFiles/webserver.dir/code/reactor/SubReactor.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h
  /usr/include/x86_64-linux-gnu/bits/mman-shared.h
  /home/shawn/projects/WebServer/code/config/config.h
- /usr/include/c++/11/fstream
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
  /usr/include/nlohmann/json.hpp
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/numeric
@@ -3194,7 +3229,6 @@ CMakeFiles/webserver.dir/code/reactor/SubReactor.cpp.o
  /usr/include/nlohmann/detail/macro_unscope.hpp
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
  /home/shawn/projects/WebServer/code/pool/ThreadPool.h
- /usr/include/c++/11/condition_variable
 
 CMakeFiles/webserver.dir/code/server/WebServer.cpp.o
  /home/shawn/projects/WebServer/code/server/WebServer.cpp
@@ -3541,6 +3575,12 @@ CMakeFiles/webserver.dir/code/server/WebServer.cpp.o
  /usr/include/c++/11/bits/stl_queue.h
  /usr/include/semaphore.h
  /usr/include/x86_64-linux-gnu/bits/semaphore.h
+ /home/shawn/projects/WebServer/code/log/log.hpp
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/condition_variable
  /home/shawn/projects/WebServer/code/pool/SqlConnPool.h
  /home/shawn/projects/WebServer/code/http/HttpResponse.h
  /usr/include/x86_64-linux-gnu/sys/stat.h
@@ -3559,10 +3599,6 @@ CMakeFiles/webserver.dir/code/server/WebServer.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mman-linux.h
  /usr/include/x86_64-linux-gnu/bits/mman-shared.h
  /home/shawn/projects/WebServer/code/config/config.h
- /usr/include/c++/11/fstream
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
  /usr/include/nlohmann/json.hpp
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/numeric
@@ -3654,5 +3690,4 @@ CMakeFiles/webserver.dir/code/server/WebServer.cpp.o
  /usr/include/nlohmann/detail/macro_unscope.hpp
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
  /home/shawn/projects/WebServer/code/pool/ThreadPool.h
- /usr/include/c++/11/condition_variable
 

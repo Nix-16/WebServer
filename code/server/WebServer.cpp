@@ -2,14 +2,14 @@
 
 Server::Server(int port, int subReactorCount)
     : master_(port, subReactorCount),
-      running_(false)
+      running_(false),
+      logger(&AsyncLogger::get_instance()),
+      config(&Config::GetInstance()) // 获取配置的单例实例
 {
-    // 获取配置的单例实例
-    Config &config = Config::GetInstance();
 
     // 初始化数据库连接池
     // SqlConnPool::Instance()->Init("localhost", 3306, "root", "6", "webserver", 4);
-    SqlConnPool::Instance()->Init(config.GetDBHost().c_str(), config.GetDBPort(), config.GetDBUser().c_str(), config.GetDBPassword().c_str(), config.GetDBName().c_str(), config.GetSqlPoolNum());
+    SqlConnPool::Instance()->Init(config->GetDBHost().c_str(), config->GetDBPort(), config->GetDBUser().c_str(), config->GetDBPassword().c_str(), config->GetDBName().c_str(), config->GetSqlPoolNum());
 }
 
 Server::~Server()
@@ -33,4 +33,5 @@ void Server::stop()
     running_ = false;
     // 通知 MasterReactor 停止(顺便子 Reactor 也会停)
     master_.stop();
+    logger->log(INFO, "MasterReactor is stop");
 }

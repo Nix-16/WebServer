@@ -54,6 +54,10 @@ private:
     std::vector<std::unique_ptr<SubReactor>> subReactors_; // 多个子 Reactor
     std::vector<std::thread> subThreads_;                  // 子 Reactor 对应的线程
     std::shared_ptr<ThreadPool> threadPool_;               // 线程池
+
+    AsyncLogger *logger;
+
+    Config *config;
 };
 
 #endif // MASTERREACTOR_H

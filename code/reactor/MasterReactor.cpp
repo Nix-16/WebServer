@@ -4,18 +4,16 @@ MasterReactor::MasterReactor(int port, int subReactorCnt)
     : port_(port),
       listenFd_(-1),
       isRunning_(false),
-      epoller_(std::make_unique<Epoll>())
+      epoller_(std::make_unique<Epoll>()),
+      logger(&AsyncLogger::get_instance()),
+      config(&Config::GetInstance()) // 获取配置的单例实例
 {
     // 1. 初始化监听套接字
     InitSocket_();
 
-    // 获取配置的单例实例
-    Config &config = Config::GetInstance();
-
     // 初始化线程池
-    //threadPool_ = std::make_shared<ThreadPool>(8);
-    threadPool_ = std::make_shared<ThreadPool>(config.GetThreadPoolNum());
-
+    // threadPool_ = std::make_shared<ThreadPool>(8);
+    threadPool_ = std::make_shared<ThreadPool>(config->GetThreadPoolNum());
 
     // 2. 创建多个 SubReactor
     subReactors_.reserve(subReactorCnt);
@@ -59,6 +57,7 @@ void MasterReactor::run()
                 continue; // 信号打断则重试
             }
             std::cerr << "epoll_wait error\n";
+            logger->log(ERROR, "epoll_wait error!");
             break;
         }
 
@@ -109,6 +108,7 @@ void MasterReactor::InitSocket_()
     if (listenFd_ < 0)
     {
         std::cerr << "Create socket error!\n";
+        logger->log(ERROR, "Create socket error!");
         exit(EXIT_FAILURE);
     }
 
@@ -122,17 +122,19 @@ void MasterReactor::InitSocket_()
     addr.sin_addr.s_addr = INADDR_ANY;
     addr.sin_port = htons(port_);
 
-    std::cout<<"port: "<<port_<<std::endl;
+    std::cout << "port: " << port_ << std::endl;
 
     if (bind(listenFd_, (sockaddr *)&addr, sizeof(addr)) < 0)
     {
         std::cerr << "Bind error!\n";
+        logger->log(ERROR, "Bind error!");
         exit(EXIT_FAILURE);
     }
 
     if (listen(listenFd_, 1024) < 0)
     {
         std::cerr << "Listen error!\n";
+        logger->log(ERROR, "Listen error!");
         exit(EXIT_FAILURE);
     }
 
@@ -141,6 +143,7 @@ void MasterReactor::InitSocket_()
     fcntl(listenFd_, F_SETFL, fcntl(listenFd_, F_GETFL) | O_NONBLOCK);
 
     std::cout << "[MasterReactor] Listen at port " << port_ << "\n";
+    logger->log(INFO, "webserver runing port: " + std::to_string(port_));
 }
 
 void MasterReactor::HandleListen_()
@@ -162,6 +165,7 @@ void MasterReactor::HandleListen_()
             else
             {
                 std::cerr << "Accept error!\n";
+                logger->log(ERROR, "Accept error!");
                 break;
             }
         }

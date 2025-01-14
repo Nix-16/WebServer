@@ -30,6 +30,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/code/reactor
     ${PROJECT_SOURCE_DIR}/code/server
     ${PROJECT_SOURCE_DIR}/code/config
+    ${PROJECT_SOURCE_DIR}/code/log
 )
 
 # 收集所有 .cpp 文件
